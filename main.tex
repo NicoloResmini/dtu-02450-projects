@@ -49,11 +49,22 @@ pdfauthor = {Nicolò Francesco Resmini - s231858}
 
 \maketitle
 
-\section{Section 1}
+\section{Dataset description}
 
 
-\subsection*{Subtitle}
+\subsection*{Previous analysis of the data}
 
+The Bike Sharing Dataset has been cited in more than ten scientific papers (linked on the same webpage from which we downloaded the dataset), which clearly demonstrates its breadth and its utility in supporting high-quality research. Therefore, we picked two of those papers and read them carefully to understand how this dataset had been used by the authors in their works. \\
+The first one is “Recurrent Neural Networks for Time Series Forecasting” by G'abor Petneh'azi (2019), which presents a recurrent neural network-based time series forecasting framework covering feature engineering, feature importances, point and interval predictions, and forecast evaluation. Briefly, RNNs are essentially neural networks with memory, so they can remember things from the past, which is obviously useful for predicting time-dependent targets. Moreover, the author disregards the available weather information, and uses time-determined features only; he encodes the cyclical features (season of year, month of year, week of year, day of week and hour of day) ,through the use the sine and cosine transformations, and he creates some binary variables, which are used to indicate if the time is afternoon, working hour, holiday, working day. Finally, to perform the value forecasts (regression) he also calculates variable importances by applying two different accuracy metrics (called R2 and MDA). In the end, the author states that he reached good results, although he admits that even this 2-year hourly bike sharing dataset is way too small to exploit the capabilities of a neural network. \\
+Furthermore, the second Paper examined is “D-vine quantile regression with discrete variables” by Niklas Schallhorn, Daniel Kraus, Thomas Nagler, Claudia Czado (2017), which introduces new quantile regression (i.e. the prediction of statistical measures called conditional quantiles) approaches to handle the presence of mixed discrete-continuous data in a dataset, like ours. Indeed, for each day we have continuous covariates temperature (Celsius), wind speed (mph) and humidity (relative in \%); additionally, there is the discrete variable weather situation giving information about the overall weather with values 1 (clear to partly cloudy), 2 (misty and cloudy) and 3 (rain, snow, thunderstorm). Eventually, by applying these new methods, prediction results show some dependencies between the features like “For temperatures higher than 32 degrees Celsius, each additional degree causes a decline in bike rentals” or “Bike rentals increase up to a relative humidity of around 60\% and decrease afterwards”. \\ 
+Both these papers were really helpful to gain a deeper insight into the dataset, by making us look at the dataset from a different perspective and draw inspiration for some implementations of our project.
+
+
+\section{Attributes of the data}
+
+\subsection{Data issues}
+
+After carefully analyzing the dataset, we can confidently say that there are no missing values or corrupted data, therefore no statistical techniques to replace eventual missing values with reasonable approximations should be performed; to verify, the same conclusion has been reached in the paper “VINE: Visualizing Statistical Interactions in Black Box Models” by Matthew Britton (2019).
 
 
 \end{document}
