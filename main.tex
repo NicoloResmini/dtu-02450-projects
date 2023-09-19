@@ -5,7 +5,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 %\usepackage{gentium}
-\usepackage{mathptmx} % Use Times Font
+% \usepackage{mathptmx} % Use Times Font
 
 
 \usepackage[pdftex]{graphicx} % Required for including pictures
@@ -51,6 +51,12 @@ pdfauthor = {Nicolò Francesco Resmini - s231858}
 
 \section{Dataset description}
 
+\subsection*{Data set subject}
+The dataset that we selected contain datas about the use of rental bike. More precisly, we know the number of bike that was rented on one day as well as the date and other informations regarding the weather that could be related to the number of users on a given day.
+
+\subsection*{Dataset source}
+We found the data set on the website UC Irvine (link below).\\
+https://archive.ics.uci.edu/
 
 \subsection*{Previous analysis of the data}
 
@@ -59,12 +65,37 @@ The first one is “Recurrent Neural Networks for Time Series Forecasting” by 
 Furthermore, the second Paper examined is “D-vine quantile regression with discrete variables” by Niklas Schallhorn, Daniel Kraus, Thomas Nagler, Claudia Czado (2017), which introduces new quantile regression (i.e. the prediction of statistical measures called conditional quantiles) approaches to handle the presence of mixed discrete-continuous data in a dataset, like ours. Indeed, for each day we have continuous covariates temperature (Celsius), wind speed (mph) and humidity (relative in \%); additionally, there is the discrete variable weather situation giving information about the overall weather with values 1 (clear to partly cloudy), 2 (misty and cloudy) and 3 (rain, snow, thunderstorm). Eventually, by applying these new methods, prediction results show some dependencies between the features like “For temperatures higher than 32 degrees Celsius, each additional degree causes a decline in bike rentals” or “Bike rentals increase up to a relative humidity of around 60\% and decrease afterwards”. \\ 
 Both these papers were really helpful to gain a deeper insight into the dataset, by making us look at the dataset from a different perspective and draw inspiration for some implementations of our project.
 
+\subsection{Techniques}
 
 \section{Attributes of the data}
+
+\subsection{Attributes list}
+
+
+\begin{itemize}
+    \item \textbf{instant}: discrete, interval;
+    \item \textbf{dteday}: discrete, interval;
+    \item \textbf{season}: discrete, nominal;
+    \item \textbf{yr}: discrete, nominal;
+    \item \textbf{mnth}: discrete, nominal;
+    \item \textbf{hr}: discrete, interval; (\textit{!: this attribute is present only in one of the dataset files})
+    \item \textbf{holiday}: discrete, nominal;
+    \item \textbf{weekday}: discrete, nominal;
+    \item \textbf{workingday}: discrete, nominal;
+    \item \textbf{wheatersit}: discrete, ordinal;
+    \item \textbf{temp}: continous, ratio;
+    \item \textbf{atemp}: continous, ratio;
+    \item \textbf{hum}: continous, ratio;
+    \item \textbf{windspeed}: continous, ratio;
+    \item \textbf{casual}: discrete, ratio;
+    \item \textbf{registered}: discrete, ratio;
+    \item \textbf{cnt}: discrete, ratio;
+\end{itemize}
 
 \subsection{Data issues}
 
 After carefully analyzing the dataset, we can confidently say that there are no missing values or corrupted data, therefore no statistical techniques to replace eventual missing values with reasonable approximations should be performed; to verify, the same conclusion has been reached in the paper “VINE: Visualizing Statistical Interactions in Black Box Models” by Matthew Britton (2019).
 
+\subsection{Attributes summary}
 
 \end{document}
