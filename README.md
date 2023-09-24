@@ -17,10 +17,10 @@ REMEMBER:
 
 - For each section, you need to use something like “Student A: 60%, Student B: 30%, Student C: 10%”. For each section, one student must be more responsible than the others. See below for an example.
 
-	          Section 1	Section 2	Section 3	Exam quest.
-student1-id	  30%	        30%	      40%	     33.33%  
+| Student ID   | Section 1   | Section 2   | Section 3   | Exam Question  |
+|--------------|-------------|-------------|-------------|---------------|
+| student1-id  | 30%         | 30%         | 40%         | 33.33%        |
+| student2-id  | 50%         | 20%         | 30%         | 33.33%        |
+| student3-id  | 20%         | 50%         | 30%         | 33.33%        |
 
-student2-id	  50%	        20%	      30%	     33.33%
-
-student3-id	  20%	        50%	      30%	     33.33%  
 
