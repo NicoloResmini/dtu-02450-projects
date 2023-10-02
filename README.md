@@ -1,4 +1,4 @@
-# Introduction to Machine learning and Data mining - Project 1
+# Introduction to Machine learning and Data mining - Project 2
 
 ## Deadline for hand in is no later than 14 November at 13:00
 
