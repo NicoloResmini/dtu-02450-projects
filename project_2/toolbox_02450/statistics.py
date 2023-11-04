@@ -41,11 +41,12 @@ def ttest_twomodels(y_true, yhatA, yhatB, alpha=0.05, loss_norm_p=1):
     return np.mean(z), CI, p
 
 
+
 def mcnemar(y_true, yhatA, yhatB, alpha=0.05):
     # perform McNemars test
     nn = np.zeros((2,2))
-    c1 = yhatA - y_true == 0
-    c2 = yhatB - y_true == 0
+    c1 = yhatA == y_true
+    c2 = yhatB == y_true
 
     nn[0,0] = sum(c1 & c2)
     nn[0,1] = sum(c1 & ~c2)
