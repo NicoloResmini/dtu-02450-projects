@@ -142,16 +142,24 @@ for par_index, test_index in CV1.split(X):
                                 )
             
             
-            #Train the model
+            # Convert numpy arrays to PyTorch Tensors
+            X_train = torch.tensor(X_train, dtype=torch.float)
+            y_train = torch.tensor(y_train, dtype=torch.float)
+            X_val = torch.tensor(X_val, dtype=torch.float)
+            y_val = torch.tensor(y_val, dtype=torch.float)
+
+            # Train the model
             net, final_loss, learning_curve = train_neural_net(model,
-                                                               loss_fn,
-                                                               X=X_train,
-                                                               y=y_train,
-                                                               n_replicates=n_replicates,
-                                                               max_iter=max_iter)
-            #Test model
-            y_test_est_ANN = net(X_val)
-            
+                                                            loss_fn,
+                                                            X=X_train,
+                                                            y=y_train,
+                                                            n_replicates=n_replicates,
+                                                            max_iter=max_iter)
+
+            # Test model
+            y_test_est_ANN = net(X_val).squeeze()  # remove extra dimension
+
+           
             # Determine errors and errors
             se = (y_test_est_ANN.float()-y_val.float())**2 # squared error
             Eval_ANN[k_2, h-1] = (sum(se).type(torch.float)/len(y_val)).data.numpy() #mean
