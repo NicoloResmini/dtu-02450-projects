@@ -20,6 +20,7 @@ df = pd.read_csv('hour.csv')
 df = df.drop('dteday', axis=1)
 df = df.drop('instant', axis=1)
 df = df.drop('yr', axis=1)
+df = df.drop('atemp', axis=1)
 
 # Applying sqrt to "cnt" (to make it a continuous variable)
 df['cnt'] = np.sqrt(df['cnt'])
