@@ -64,8 +64,8 @@ from scipy import stats
 
 ## Crossvalidation
 # Create crossvalidation partition for evaluation
-K1 = 5
-K2 = 5
+K1 = 10
+K2 = 10
 CV1 = model_selection.KFold(n_splits=K1,shuffle=True)
 size_val = np.empty(K2)
 size_par = np.empty(K1)
@@ -73,10 +73,10 @@ size_test = np.empty(K1)
   
 #ANN
 h = 0
-h_values = [1, 300, 375, 440]
+h_values = [1, 10, 50, 75, 100]
 h_number = len(h_values)
 n_replicates = 1        # number of networks trained in each k-fold
-max_iter = 5000
+max_iter = 500
 loss_fn = torch.nn.MSELoss() # notice how this is now a mean-squared-error loss
 Eval_ANN = np.empty((K2,h_number))
 Egen_ANN_temp = np.empty((h_number))
@@ -267,7 +267,7 @@ for par_index, test_index in CV1.split(X):
     
     
     #baseline
-    Etest_nofeatures[k_1] = np.square(y_test-y_par.mean()).sum()/y_par.shape[0]
+    Etest_nofeatures[k_1] = np.square(y_test-y_par.mean()).sum()/y_test.shape[0]
                   
     k_1 = k_1 + 1
     
@@ -290,9 +290,9 @@ from IPython.display import display, HTML
 # Crea un MultiIndex per le colonne
 columns = pd.MultiIndex.from_tuples([
     ('Outer fold', 'i'),
-    ('ANN', 'h<sub>i</sub>'),
+    ('ANN', 'h<sub>i</sub><sup>*</sup>'),
     ('ANN', 'E<sub>i</sub><sup>test</sup>'),
-    ('Linear Regression', '&lambda;<sub>i</sub>'),
+    ('Linear Regression', '&lambda;<sub>i</sub><sup>*</sup>'),
     ('Linear Regression', 'E<sub>i</sub><sup>test</sup>'),
     ('Baseline', 'E<sub>i</sub><sup>test</sup>')
 ])
