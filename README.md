@@ -32,13 +32,6 @@ publicly available in http://capitalbikeshare.com/system-data. We aggregated the
 extracted and added the corresponding weather and seasonal information. Weather information are extracted from http://www.freemeteo.com. 
 
 
-## Files
-
-- Readme.txt
-- hour.csv : bike sharing counts aggregated on hourly basis. Records: 17379 hours
-- day.csv - bike sharing counts aggregated on daily basis. Records: 731 days
-
-	
 ## Dataset characteristics
 Both hour.csv and day.csv have the following fields, except hr which is not available in day.csv
 	
